@@ -144,7 +144,8 @@ const CryptoPlatform = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white">
+    <div className="min-h-screen text-white bg-[#0b2545]">
+      
       {/* Header */}
       <header className="bg-black/20 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-6 py-4">
@@ -156,10 +157,10 @@ const CryptoPlatform = () => {
               <h1 className="text-xl font-bold">CryptoMiner Pro</h1>
             </div>
             <nav className="hidden md:flex space-x-6">
-              <a href="#" className="hover:text-cyan-400 transition-colors">Mining</a>
-              <a href="#" className="hover:text-cyan-400 transition-colors">News</a>
-              <a href="#" className="hover:text-cyan-400 transition-colors">Trading</a>
-              <a href="#" className="hover:text-cyan-400 transition-colors">Analytics</a>
+              <a href="#" className="hover:text-[#0466c8] transition-colors">Mining</a>
+              <a href="#" className="hover:text-[#0466c8] transition-colors">News</a>
+              <a href="#" className="hover:text-[#0466c8] transition-colors">Trading</a>
+              <a href="#" className="hover:text-[#0466c8] transition-colors">Analytics</a>
             </nav>
           </div>
         </div>
@@ -182,7 +183,7 @@ const CryptoPlatform = () => {
       <main className="container mx-auto px-6 py-12">
         {/* Mining News Section */}
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl font-bold bg-gradient-to-r bg-white bg-clip-text text-transparent">
             Latest Crypto Mining News
           </h2>
           <div className="flex space-x-2">
@@ -202,7 +203,7 @@ const CryptoPlatform = () => {
         </div>
 
         {/* News Cards Carousel */}
-        <div className="relative overflow-hidden rounded-2xl mb-16">
+        <div className="relative overflow-hidden rounded-2xl mb-16 bg-[#13315c]">
           <div 
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -232,7 +233,7 @@ const CryptoPlatform = () => {
                       </p>
                       
                       <div className="flex items-center justify-between">
-                        <button className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-semibold hover:from-cyan-600 hover:to-blue-700 transition-all duration-200 hover:scale-105">
+                        <button className="px-6 py-3 bg-gradient-to-r bg-black rounded-lg font-semibold hover:bg-gray-950 transition-all duration-200 hover:scale-105">
                           Read More
                         </button>
                         {card.source && (
@@ -243,7 +244,7 @@ const CryptoPlatform = () => {
 
                     {/* Visual */}
                     <div className={`bg-gradient-to-br ${card.gradient} relative overflow-hidden`}>
-                      <div className="absolute inset-0 bg-black/20"></div>
+                      <div className="absolute inset-0 bg-black"></div>
                       <div className="relative z-10 p-8 flex items-center justify-center h-full">
                         <div className="text-center">
                           {card.category === 'XRP Mining' && (
@@ -262,7 +263,7 @@ const CryptoPlatform = () => {
                             <div className="space-y-4">
                               <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto relative">
                                 <Star className="w-10 h-10" />
-                                <div className="absolute -top-2 -right-2 w-6 h-6 bg-pink-500 rounded-full flex items-center justify-center text-xs">
+                                <div className="absolute -top-2 -right-2 w-6 h-6 bg-[#003f88] rounded-full flex items-center justify-center text-xs">
                                   !
                                 </div>
                               </div>
@@ -302,54 +303,60 @@ const CryptoPlatform = () => {
               onClick={() => setCurrentSlide(index)}
               className={`w-3 h-3 rounded-full transition-all duration-200 ${
                 currentSlide === index 
-                  ? 'bg-cyan-400 w-8' 
+                  ? 'bg-black w-8' 
                   : 'bg-white/30 hover:bg-white/50'
               }`}
             />
           ))}
         </div>
 
+
+
+
         {/* Stats Section */}
         <div className="grid md:grid-cols-3 gap-6 mt-16">
-          <div className="bg-gradient-to-br from-green-500/20 to-emerald-500/20 backdrop-blur-lg rounded-xl border border-green-500/30 p-6">
+         <div className="bg-[#13315c] hover:bg-[#134074] text-white p-5 rounded-lg transition-colors duration-300 hover:text-black">
             <div className="flex items-center space-x-3 mb-2">
-              <TrendingUp className="w-8 h-8 text-green-400" />
+              <TrendingUp className="w-8 h-8 text-black" />
               <h3 className="text-xl font-semibold">Mining Revenue</h3>
             </div>
-            <div className="text-3xl font-bold text-green-400 mb-1">$124,856</div>
-            <div className="text-sm text-gray-400">+12.5% from last month</div>
+            <div className="text-3xl font-bold mb-1">$124,856</div>
+            <div className="text-sm">+12.5% from last month</div>
           </div>
 
-          <div className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 backdrop-blur-lg rounded-xl border border-blue-500/30 p-6">
+           <div className="bg-[#13315c] hover:bg-[#134074] text-white p-5 rounded-lg transition-colors duration-300 hover:text-black">
+            
             <div className="flex items-center space-x-3 mb-2">
-              <Zap className="w-8 h-8 text-blue-400" />
+              <Zap className="w-8 h-8 text-black" />
               <h3 className="text-xl font-semibold">Hash Rate</h3>
             </div>
-            <div className="text-3xl font-bold text-blue-400 mb-1">2.5 TH/s</div>
-            <div className="text-sm text-gray-400">Optimal performance</div>
+            <div className="text-3xl font-bold  mb-1">2.5 TH/s</div>
+            <div className="text-sm">Optimal performance</div>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-lg rounded-xl border border-purple-500/30 p-6">
+           <div className="bg-[#13315c] hover:bg-[#134074] text-white p-5 rounded-lg transition-colors duration-300 hover:text-black">
             <div className="flex items-center space-x-3 mb-2">
-              <Coins className="w-8 h-8 text-purple-400" />
+              <Coins className="w-8 h-8 text-black" />
               <h3 className="text-xl font-semibold">Active Miners</h3>
             </div>
-            <div className="text-3xl font-bold text-purple-400 mb-1">1,247</div>
-            <div className="text-sm text-gray-400">Online worldwide</div>
+            <div className="text-3xl font-bold mb-1">1,247</div>
+            <div className="text-sm">Online worldwide</div>
           </div>
         </div>
 
+
+
         {/* Bitcoin News Section */}
-        <div className="mt-24 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 p-8">
+        <div className="mt-24 bg-[#13315c] backdrop-blur-lg rounded-2xl border border-white/20 p-8">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">
+            <h2 className="text-3xl font-bold bg-gradient-to-r bg-white bg-clip-text text-transparent">
               Bitcoin & Cryptocurrency News
             </h2>
           </div>
 
           {/* Main Story */}
           <div className="relative rounded-2xl overflow-hidden mb-12">
-            <div className="w-full h-[50vh] bg-gradient-to-br from-orange-500 to-yellow-600 flex items-center justify-center">
+            <div className="w-full h-[50vh] bg-gradient-to-br bg-black flex items-center justify-center">
               <div className="text-center text-white">
                 <div className="text-6xl mb-4">₿</div>
                 <h2 className="text-2xl font-bold">Bitcoin Hero Image</h2>
@@ -359,7 +366,7 @@ const CryptoPlatform = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
                 The Bitcoin Story: From Whitepaper to Global Phenomenon
               </h2>
-              <p className="text-sm text-orange-400 font-medium">
+              <p className="text-sm text-gray-400 font-medium">
                 Crypto Insights <span className="text-white">Today</span>
               </p>
             </div>
@@ -395,7 +402,7 @@ const CryptoPlatform = () => {
 
                 <button
                   onClick={toggleExpand}
-                  className="mt-4 flex items-center text-orange-400 hover:text-orange-300 font-medium transition-colors"
+                  className="mt-4 flex items-center text-gray-400 font-medium transition-colors"
                 >
                   {expanded ? 'Read less' : 'Read more'}
                   <ChevronDown
@@ -406,24 +413,28 @@ const CryptoPlatform = () => {
             </article>
           </div>
 
+          
+
           {/* Latest News Section */}
           <div className="mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-white">Latest Bitcoin & Cryptocurrency News</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {latestNews.map((news, index) => (
-                <div key={index} className="space-y-4 bg-white/5 rounded-xl p-4 hover:bg-white/10 transition-colors">
+                <div key={index} className="space-y-4 bg-white/5  hover:bg-white/10 rounded-xl p-4 transition-colors">
                   <img
                     src={news.image}
                     alt={news.title}
                     className="w-full h-48 object-cover rounded-xl"
                   />
                   <h3 className="text-lg font-semibold leading-snug text-white">{news.title}</h3>
-                  <p className="text-sm text-gray-400">{news.description}</p>
-                  <p className="text-sm text-orange-400 font-medium">{news.author} <span className="text-gray-500">{news.timeAgo}</span></p>
+                  <p className="text-sm text-gray-300">{news.description}</p>
+                  <p className="text-sm text-black font-medium">{news.author} <span className="text-gray-500">{news.timeAgo}</span></p>
                 </div>
               ))}
             </div>
           </div>
+
+
 
           {/* Related Articles */}
           <div className="mb-12">
@@ -488,7 +499,7 @@ const CryptoPlatform = () => {
               )}
               <button
                 onClick={toggleReadMore}
-                className="mt-6 inline-flex items-center text-orange-400 hover:text-orange-300 font-medium transition"
+                className="mt-6 inline-flex items-center text-black  font-medium transition"
               >
                 {isReadMoreOpen ? "Read less" : "Read more"}
                 <ChevronDown

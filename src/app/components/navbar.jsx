@@ -29,7 +29,6 @@ const [isSearchOpen, setIsSearchOpen] = useState(false);
 
         
 
-       
 
 {/* Search Button */}
 <div className="relative">
