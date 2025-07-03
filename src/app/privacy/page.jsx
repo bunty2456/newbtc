@@ -151,7 +151,7 @@ export default function PrivacyCenter() {
                   
                   <button
                     type="submit"
-                    className="w-full py-3 px-4 border-2 bg-black text-cyan-500 font-semibold rounded-lg hover:bg-cyan-500 hover:text-white transition-colors duration-200"
+                    className="bg-[#13315c] hover:bg-[#134074] text-white font-medium px-8 py-3 rounded-lg transition-colors duration-300 hover:text-black"
                   >
                     Sign Up
                   </button>

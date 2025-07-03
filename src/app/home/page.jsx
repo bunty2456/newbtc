@@ -1,25 +1,24 @@
+
 "use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Zap, Coins, TrendingUp, Globe, Clock, Star, ChevronDown } from 'lucide-react';
 
 const CryptoPlatform = () => {
-  // Mining platform states
   const [currentSlide, setCurrentSlide] = useState(0);
   const [expanded, setExpanded] = useState(false);
   const [isReadMoreOpen, setIsReadMoreOpen] = useState(false);
 
-  // News platform states
   const toggleExpand = () => setExpanded(!expanded);
   const toggleReadMore = () => setIsReadMoreOpen(!isReadMoreOpen);
 
-  // Mining platform data
   const newsCards = [
     {
       id: 1,
       title: "From traditional mining to smart contract mining, XRP Mining smart contract system completely changes the way of crypto mining",
       content: "As the cryptocurrency market continues to develop, traditional mining methods are facing problems of high energy consumption, expensive equipment, and complex operations. However, with the emergence of smart contract technology, a new mining model is gradually changing the entire industry landscape.",
-      image: "/api/placeholder/400/200",
+      image: "https://via.placeholder.com/400x200",
       category: "XRP Mining",
       timeAgo: "2 hours ago",
       gradient: "from-blue-500 to-cyan-400"
@@ -28,7 +27,7 @@ const CryptoPlatform = () => {
       id: 2,
       title: "This Simple Deposit Trick Could Win You 100,000 FUN Instantly",
       content: "FUNToken is turning traditional deposits into dynamic, reward-driven experiences by giving users instant Wheel of Fortune spins for deposits of...",
-      image: "/api/placeholder/400/200",
+      image: "https://via.placeholder.com/400x200",
       category: "Gaming",
       timeAgo: "15 hours ago",
       source: "PR Desk",
@@ -38,7 +37,7 @@ const CryptoPlatform = () => {
       id: 3,
       title: "UK-certified ETHRANSACTION Cloud Mining Launches Best Free Cloud Mining for BTC, DOGE, XRP and Other Popular Coins Enthusiasts",
       content: "LONDON, United Kingdom, June 30, 2025 (GLOBE NEWSWIRE) — Traditionally, cryptocurrency mining has been dominated by expensive hardware setups and high electricity costs.",
-      image: "/api/placeholder/400/200",
+      image: "https://via.placeholder.com/400x200",
       category: "Cloud Mining",
       timeAgo: "1 day ago",
       gradient: "from-green-500 to-teal-400"
@@ -47,7 +46,6 @@ const CryptoPlatform = () => {
 
   const cryptoLogos = ['BTC', 'ETH', 'XRP', 'DOGE', 'ADA', 'DOT'];
 
-  // News platform data
   const premiumSponsors = [
     { name: "BitStarz", logo: "🌟", tagline: "DREAM BIG. WIN BIGGER", category: "casino" },
     { name: "CryptoSlots", logo: "🎰", tagline: "", category: "casino" },
@@ -134,7 +132,6 @@ const CryptoPlatform = () => {
     }
   ];
 
-  // Mining platform functions
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % newsCards.length);
   };
@@ -145,7 +142,6 @@ const CryptoPlatform = () => {
 
   return (
     <div className="min-h-screen text-white bg-[#0b2545]">
-      
       {/* Header */}
       <header className="bg-black/20 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-6 py-4">
@@ -168,9 +164,9 @@ const CryptoPlatform = () => {
 
       {/* Crypto Ticker */}
       <div className="bg-black/30 backdrop-blur-sm border-b border-white/10 py-2 overflow-hidden">
-        <div className="flex animate-pulse">
+        <div className="flex animate-[ticker_20s_linear_infinite]">
           {cryptoLogos.map((crypto, index) => (
-            <div key={index} className="flex items-center space-x-2 mx-8 whitespace-nowrap">
+            <div key={`ticker-${crypto}-${index}`} className="flex items-center space-x-2 mx-8 whitespace-nowrap">
               <Coins className="w-4 h-4 text-yellow-400" />
               <span className="text-sm font-semibold">{crypto}</span>
               <span className="text-green-400 text-sm">+{(Math.random() * 10).toFixed(2)}%</span>
@@ -187,15 +183,17 @@ const CryptoPlatform = () => {
             Latest Crypto Mining News
           </h2>
           <div className="flex space-x-2">
-            <button 
+            <button
               onClick={prevSlide}
               className="p-2 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm transition-all duration-200 hover:scale-105"
+              aria-label="Previous slide"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <button 
+            <button
               onClick={nextSlide}
               className="p-2 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm transition-all duration-200 hover:scale-105"
+              aria-label="Next slide"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -204,15 +202,14 @@ const CryptoPlatform = () => {
 
         {/* News Cards Carousel */}
         <div className="relative overflow-hidden rounded-2xl mb-16 bg-[#13315c]">
-          <div 
+          <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
             {newsCards.map((card) => (
-              <div key={card.id} className="w-full flex-shrink-0">
+              <div key={`news-card-${card.id}`} className="w-full flex-shrink-0">
                 <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg rounded-2xl border border-white/20 overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300">
                   <div className="grid md:grid-cols-2 gap-0">
-                    {/* Content */}
                     <div className="p-8 flex flex-col justify-center">
                       <div className="flex items-center space-x-2 mb-4">
                         <span className={`px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r ${card.gradient} text-white`}>
@@ -223,15 +220,12 @@ const CryptoPlatform = () => {
                           {card.timeAgo}
                         </div>
                       </div>
-                      
                       <h3 className="text-2xl font-bold mb-4 leading-tight">
                         {card.title}
                       </h3>
-                      
                       <p className="text-gray-300 mb-6 leading-relaxed">
                         {card.content}
                       </p>
-                      
                       <div className="flex items-center justify-between">
                         <button className="px-6 py-3 bg-gradient-to-r bg-black rounded-lg font-semibold hover:bg-gray-950 transition-all duration-200 hover:scale-105">
                           Read More
@@ -241,10 +235,8 @@ const CryptoPlatform = () => {
                         )}
                       </div>
                     </div>
-
-                    {/* Visual */}
                     <div className={`bg-gradient-to-br ${card.gradient} relative overflow-hidden`}>
-                      <div className="absolute inset-0 bg-black"></div>
+                      <div className="absolute inset-0 bg-black/50"></div>
                       <div className="relative z-10 p-8 flex items-center justify-center h-full">
                         <div className="text-center">
                           {card.category === 'XRP Mining' && (
@@ -254,7 +246,7 @@ const CryptoPlatform = () => {
                               </div>
                               <div className="grid grid-cols-3 gap-2 opacity-50">
                                 {[...Array(9)].map((_, i) => (
-                                  <div key={i} className="w-8 h-8 bg-white/20 rounded"></div>
+                                  <div key={`xrp-grid-${i}`} className="w-8 h-8 bg-white/20 rounded"></div>
                                 ))}
                               </div>
                             </div>
@@ -275,7 +267,7 @@ const CryptoPlatform = () => {
                             <div className="space-y-4">
                               <div className="grid grid-cols-2 gap-2">
                                 {['BTC', 'DOGE', 'XRP', 'ETH'].map((crypto) => (
-                                  <div key={crypto} className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center">
+                                  <div key={`cloud-mining-${crypto}`} className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center">
                                     <span className="font-bold text-sm">{crypto}</span>
                                   </div>
                                 ))}
@@ -295,56 +287,48 @@ const CryptoPlatform = () => {
           </div>
         </div>
 
-        {/* Slide Indicators */}
         <div className="flex justify-center space-x-2 mt-8">
           {newsCards.map((_, index) => (
             <button
-              key={index}
+              key={`indicator-${index}`}
               onClick={() => setCurrentSlide(index)}
               className={`w-3 h-3 rounded-full transition-all duration-200 ${
                 currentSlide === index 
-                  ? 'bg-black w-8' 
+                  ? 'bg-white w-8' 
                   : 'bg-white/30 hover:bg-white/50'
               }`}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
 
-
-
-
         {/* Stats Section */}
         <div className="grid md:grid-cols-3 gap-6 mt-16">
-         <div className="bg-[#13315c] hover:bg-[#134074] text-white p-5 rounded-lg transition-colors duration-300 hover:text-black">
+          <div className="bg-[#13315c] hover:bg-[#134074] text-white p-5 rounded-lg transition-colors duration-300">
             <div className="flex items-center space-x-3 mb-2">
-              <TrendingUp className="w-8 h-8 text-black" />
+              <TrendingUp className="w-8 h-8 text-yellow-400" />
               <h3 className="text-xl font-semibold">Mining Revenue</h3>
             </div>
             <div className="text-3xl font-bold mb-1">$124,856</div>
             <div className="text-sm">+12.5% from last month</div>
           </div>
-
-           <div className="bg-[#13315c] hover:bg-[#134074] text-white p-5 rounded-lg transition-colors duration-300 hover:text-black">
-            
+          <div className="bg-[#13315c] hover:bg-[#134074] text-white p-5 rounded-lg transition-colors duration-300">
             <div className="flex items-center space-x-3 mb-2">
-              <Zap className="w-8 h-8 text-black" />
+              <Zap className="w-8 h-8 text-yellow-400" />
               <h3 className="text-xl font-semibold">Hash Rate</h3>
             </div>
-            <div className="text-3xl font-bold  mb-1">2.5 TH/s</div>
+            <div className="text-3xl font-bold mb-1">2.5 TH/s</div>
             <div className="text-sm">Optimal performance</div>
           </div>
-
-           <div className="bg-[#13315c] hover:bg-[#134074] text-white p-5 rounded-lg transition-colors duration-300 hover:text-black">
+          <div className="bg-[#13315c] hover:bg-[#134074] text-white p-5 rounded-lg transition-colors duration-300">
             <div className="flex items-center space-x-3 mb-2">
-              <Coins className="w-8 h-8 text-black" />
+              <Coins className="w-8 h-8 text-yellow-400" />
               <h3 className="text-xl font-semibold">Active Miners</h3>
             </div>
             <div className="text-3xl font-bold mb-1">1,247</div>
             <div className="text-sm">Online worldwide</div>
           </div>
         </div>
-
-
 
         {/* Bitcoin News Section */}
         <div className="mt-24 bg-[#13315c] backdrop-blur-lg rounded-2xl border border-white/20 p-8">
@@ -356,7 +340,7 @@ const CryptoPlatform = () => {
 
           {/* Main Story */}
           <div className="relative rounded-2xl overflow-hidden mb-12">
-            <div className="w-full h-[50vh] bg-gradient-to-br bg-black flex items-center justify-center">
+            <div className="w-full h-[50vh] bg-gradient-to-br from-gray-800/50 to-black flex items-center justify-center">
               <div className="text-center text-white">
                 <div className="text-6xl mb-4">₿</div>
                 <h2 className="text-2xl font-bold">Bitcoin Hero Image</h2>
@@ -377,15 +361,12 @@ const CryptoPlatform = () => {
             <article className="bg-white/5 rounded-lg shadow-md overflow-hidden">
               <div className="p-6 md:p-8">
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">The Bitcoin Story</h2>
-                
                 <p className="text-gray-300 mb-4">
                   As the first-ever and most valuable cryptocurrency by market cap, Bitcoin continues to dominate headlines and shape the trajectory of the entire crypto market.
                 </p>
-
                 <p className="text-gray-300 mb-4">
                   First introduced in a whitepaper by 'Satoshi Nakamoto' in 2008, and officially released to the world in January 2009 as the very first decentralized cryptocurrency, Bitcoin was the first financial instrument of its kind to use cryptography to record and send transactions over the blockchain.
                 </p>
-
                 {expanded && (
                   <div className="space-y-4">
                     <p className="text-gray-300">
@@ -399,7 +380,6 @@ const CryptoPlatform = () => {
                     </p>
                   </div>
                 )}
-
                 <button
                   onClick={toggleExpand}
                   className="mt-4 flex items-center text-gray-400 font-medium transition-colors"
@@ -413,42 +393,43 @@ const CryptoPlatform = () => {
             </article>
           </div>
 
-          
-
           {/* Latest News Section */}
           <div className="mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-white">Latest Bitcoin & Cryptocurrency News</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {latestNews.map((news, index) => (
-                <div key={index} className="space-y-4 bg-white/5  hover:bg-white/10 rounded-xl p-4 transition-colors">
-                  <img
+                <div key={`latest-news-${index}`} className="space-y-4 bg-white/5 hover:bg-white/10 rounded-xl p-4 transition-colors">
+                  <Image
                     src={news.image}
                     alt={news.title}
+                    width={400}
+                    height={300}
                     className="w-full h-48 object-cover rounded-xl"
+                    priority={index === 0}
                   />
                   <h3 className="text-lg font-semibold leading-snug text-white">{news.title}</h3>
                   <p className="text-sm text-gray-300">{news.description}</p>
-                  <p className="text-sm text-black font-medium">{news.author} <span className="text-gray-500">{news.timeAgo}</span></p>
+                  <p className="text-sm text-gray-400 font-medium">
+                    {news.author} <span className="text-gray-500">{news.timeAgo}</span>
+                  </p>
                 </div>
               ))}
             </div>
           </div>
-
-
 
           {/* Related Articles */}
           <div className="mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 text-white">Related Bitcoin Articles</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {relatedArticles.map((article, index) => (
-                <div key={index} className="bg-white/5 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow hover:bg-white/10">
-                  <div className="h-48 relative">
-                    <img
-                      src={article.image}
-                      alt={article.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                <div key={`related-article-${index}`} className="bg-white/5 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow hover:bg-white/10">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    width={400}
+                    height={200}
+                    className="w-full h-48 object-cover"
+                  />
                   <div className="p-4">
                     <h3 className="text-lg font-semibold text-white mb-2">{article.title}</h3>
                     <p className="text-gray-400 text-sm mb-3">{article.excerpt}</p>
@@ -464,7 +445,7 @@ const CryptoPlatform = () => {
             <h2 className="text-2xl font-bold text-white mb-6">More Press Releases</h2>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {[1, 2, 3].map((item) => (
-                <div key={item} className="bg-white/5 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow hover:bg-white/10">
+                <div key={`press-release-${item}`} className="bg-white/5 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow hover:bg-white/10">
                   <div className="text-sm text-gray-400 mb-2">Tech News • 12 hours ago</div>
                   <h3 className="font-semibold text-white mb-2">
                     Cryptocurrency Market Shows Strong Recovery Signs
@@ -479,7 +460,6 @@ const CryptoPlatform = () => {
 
           {/* Read More Section with Sponsors */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            {/* Read More Content */}
             <div className="lg:col-span-2 text-lg leading-relaxed text-gray-300">
               <p>
                 NewsBTC's Bitcoin Resources Page is a comprehensive gateway to the world of Bitcoin and cryptocurrency.
@@ -499,7 +479,7 @@ const CryptoPlatform = () => {
               )}
               <button
                 onClick={toggleReadMore}
-                className="mt-6 inline-flex items-center text-black  font-medium transition"
+                className="mt-6 inline-flex items-center text-gray-400 font-medium transition"
               >
                 {isReadMoreOpen ? "Read less" : "Read more"}
                 <ChevronDown
@@ -508,13 +488,12 @@ const CryptoPlatform = () => {
               </button>
             </div>
 
-            {/* Sponsors Section */}
             <div className="bg-white/5 rounded-2xl shadow-lg p-6 border border-white/10">
               <h2 className="text-xl font-bold text-white mb-6">Premium Sponsors</h2>
               <div className="grid grid-cols-2 gap-4">
                 {premiumSponsors.map((sponsor, index) => (
                   <div
-                    key={index}
+                    key={`sponsor-${index}`}
                     className="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-colors cursor-pointer group"
                   >
                     <div className="flex flex-col items-center text-center">
@@ -537,7 +516,6 @@ const CryptoPlatform = () => {
           </div>
         </div>
       </main>
-      
     </div>
   );
 };

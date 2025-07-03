@@ -1,5 +1,5 @@
 import React from 'react'
-import CryptoResourcesPage from './section1/page'
+import CryptoResourcesPage from './home/page'
 
 const page = () => {
   return (

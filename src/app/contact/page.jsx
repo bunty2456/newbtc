@@ -183,7 +183,6 @@ export default function Contact() {
                     type="submit"
                     className="bg-[#13315c] hover:bg-[#134074] text-white font-medium px-8 py-3 rounded-lg transition-colors duration-300 hover:text-black"
                   >
-                    
                     Submit
                   </button>
                 </form>

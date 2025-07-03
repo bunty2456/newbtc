@@ -1,73 +1,69 @@
-
 "use client";
 
 import React, { useState } from "react";
 import { Search, ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
 
-const Navbar = () => {
- const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-const [isCryptoNewsOpen, setIsCryptoNewsOpen] = useState(false);
-const [isCryptoPricesOpen, setIsCryptoPricesOpen] = useState(false);
-const [isSearchOpen, setIsSearchOpen] = useState(false);
+const Header = () => {
+  const [isCryptoNewsOpen, setIsCryptoNewsOpen] = useState(false);
+  const [isCryptoPricesOpen, setIsCryptoPricesOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
     <header className="border-b border-gray-200">
       {/* Top Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex justify-between items-center bg-white">
-        {/* Left Spacer */}
         <div className="hidden lg:flex w-1/3" />
 
-       {/* Logo Centered */}
-<div className="w-full flex justify-center py-4 mr-40">
-  <div className="flex items-center space-x-2">
-    <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 via-blue-500 to-purple-600 rounded-lg flex items-center justify-center transform rotate-12">
-      <span className="text-white font-bold text-lg transform -rotate-12">N</span>
-    </div>
-    <span className="text-2xl font-extrabold text-gray-900 tracking-tight">NEWSBTC</span>
-  </div>
-</div>
-
-        
-
-<Link className="bg-red-300 p-3" href="/dasboard">Dashboard</Link>
-{/* Search Button */}
-<div className="relative">
-  <button 
-    className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
-    onClick={() => setIsSearchOpen(true)}
-  >
-    <Search className="w-5 h-5 stroke-2" />
-    
-  </button>
-
-  {/* Search Dropdown Modal */}
-  {isSearchOpen && (
-    <div className="absolute right-0 top-12 z-50">
-      <div className="bg-white shadow-lg rounded-md p-4 w-[300px]">
-        <div className="flex justify-between items-center mb-2">
-          <span className="text-sm font-medium text-gray-600">Search...</span>
-          <button 
-            className="text-gray-400 hover:text-gray-700"
-            onClick={() => setIsSearchOpen(false)}
-          >
-            <X className="w-5 h-5" />
-          </button>
+        {/* Logo Centered */}
+        <div className="w-full flex justify-center py-4 mr-40">
+          <div className="flex items-center space-x-2">
+            <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 via-blue-500 to-purple-600 rounded-lg flex items-center justify-center transform rotate-12">
+              <span className="text-white font-bold text-lg transform -rotate-12">N</span>
+            </div>
+            <span className="text-2xl font-extrabold text-gray-900 tracking-tight">NEWSBTC</span>
+          </div>
         </div>
+
+        {/* ✅ Fixed Dashboard Link */}
+        <Link className="bg-red-300 p-3 rounded hover:bg-red-400 transition" href="/dashboard">
+          Dashboard
+        </Link>
+
+        {/* Search Button */}
         <div className="relative">
-          <input 
-            type="text" 
-            className="w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-1 focus:ring-cyan-500"
-            placeholder="Search..."
-          />
-          <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-          
-        </div>
-      </div>
-    </div>
-  )}
-</div>
+          <button
+            className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+            onClick={() => setIsSearchOpen(true)}
+          >
+            <Search className="w-5 h-5 stroke-2" />
+          </button>
 
+          {/* Search Dropdown Modal */}
+          {isSearchOpen && (
+            <div className="absolute right-0 top-12 z-50">
+              <div className="bg-white shadow-lg rounded-md p-4 w-[300px]">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-sm font-medium text-gray-600">Search...</span>
+                  <button
+                    className="text-gray-400 hover:text-gray-700"
+                    onClick={() => setIsSearchOpen(false)}
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+                <div className="relative">
+                  <input
+                    type="text"
+                    className="w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                    placeholder="Search..."
+                  />
+                  <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Navigation Links */}
@@ -130,7 +126,7 @@ const [isSearchOpen, setIsSearchOpen] = useState(false);
           )}
         </div>
 
-        {/* Links */}
+        {/* Static Links */}
         <span className="cursor-pointer hover:text-black transition">Crypto Resources & Directory</span>
         <span className="cursor-pointer hover:text-black transition">All Crypto</span>
 
@@ -146,18 +142,8 @@ const [isSearchOpen, setIsSearchOpen] = useState(false);
           <span className="bg-blue-700 text-white text-xs px-2 py-0.5 rounded">Try</span>
         </div>
       </nav>
-      {/* Breaking News Banner */}
-      <div className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-mono text-sm overflow-hidden py-2">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="whitespace-nowrap animate-marquee hover:[animation-play-state:paused]">
-            <span className="font-bold mr-4">Breaking News:</span>
-            Coinbase Confirms DOJ Investigation Following Major Security Incident
-          </div>
-        </div>
-      </div>
-
     </header>
   );
 };
 
-export default Navbar;
+export default Header;
