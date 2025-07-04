@@ -7,40 +7,40 @@ const AboutPage = () => {
     {
       name: "Tony Severino",
       role: "Head of Research",
-      image: "/images/team/tony-severino.jpg"
+      image: ""
     },
     {
       name: "Best Owie",
       role: "Managing Editor",
-      image: "/images/team/best-owie.jpg"
+      image: ""
     },
     {
       name: "Reynaldo Marquez",
       role: "Managing Editor",
-      image: "/images/team/reynaldo-marquez.jpg"
+      image: ""
     },
     {
       name: "Jet Encila",
       role: "Weekend Editor",
-      image: "/images/team/jet-encila.jpg"
+      image: ""
     },
     {
       name: "Jake Simmons",
       role: "News Specialist",
-      image: "/images/team/jake-simmons.jpg"
+      image: ""
     },
     {
       name: "Dalmas Ngetich",
       role: "News Specialist",
-      image: "/images/team/dalmas-ngetich.jpg"
+      image: ""
     }
   ];
 
   const partners = [
-    { name: "eToro", logo: "/images/partners/etoro.png" },
-    { name: "SimpleFX", logo: "/images/partners/simplefx.png" },
-    { name: "Huobi", logo: "/images/partners/huobi.png" },
-    { name: "KuCoin", logo: "/images/partners/kucoin.png" }
+    { name: "eToro", logo: "" },
+    { name: "SimpleFX", logo: "" },
+    { name: "Huobi", logo: "" },
+    { name: "KuCoin", logo: "" }
   ];
 
   return (

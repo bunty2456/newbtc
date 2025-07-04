@@ -18,7 +18,7 @@ const CryptoPlatform = () => {
       id: 1,
       title: "From traditional mining to smart contract mining, XRP Mining smart contract system completely changes the way of crypto mining",
       content: "As the cryptocurrency market continues to develop, traditional mining methods are facing problems of high energy consumption, expensive equipment, and complex operations. However, with the emergence of smart contract technology, a new mining model is gradually changing the entire industry landscape.",
-      image: "https://via.placeholder.com/400x200",
+      image: "",
       category: "XRP Mining",
       timeAgo: "2 hours ago",
       gradient: "from-blue-500 to-cyan-400"
@@ -27,7 +27,7 @@ const CryptoPlatform = () => {
       id: 2,
       title: "This Simple Deposit Trick Could Win You 100,000 FUN Instantly",
       content: "FUNToken is turning traditional deposits into dynamic, reward-driven experiences by giving users instant Wheel of Fortune spins for deposits of...",
-      image: "https://via.placeholder.com/400x200",
+      image: "",
       category: "Gaming",
       timeAgo: "15 hours ago",
       source: "PR Desk",
@@ -37,7 +37,7 @@ const CryptoPlatform = () => {
       id: 3,
       title: "UK-certified ETHRANSACTION Cloud Mining Launches Best Free Cloud Mining for BTC, DOGE, XRP and Other Popular Coins Enthusiasts",
       content: "LONDON, United Kingdom, June 30, 2025 (GLOBE NEWSWIRE) — Traditionally, cryptocurrency mining has been dominated by expensive hardware setups and high electricity costs.",
-      image: "https://via.placeholder.com/400x200",
+      image: "",
       category: "Cloud Mining",
       timeAgo: "1 day ago",
       gradient: "from-green-500 to-teal-400"
@@ -61,19 +61,19 @@ const CryptoPlatform = () => {
 
   const editorsPick = [
     {
-      image: "https://via.placeholder.com/64x64/1f2937/ffffff?text=BTC",
+      image: "",
       title: "Bitcoin Slips Under 200-Day Moving Average – Will The Downtrend Continue?",
       author: "Ash Tiwari",
       timeAgo: "3 months ago",
     },
     {
-      image: "https://via.placeholder.com/64x64/6366f1/ffffff?text=ETH",
+      image: "",
       title: "Ethereum Risks Another 15% Correction After Fall Below $2,000 – What's Next For ETH?",
       author: "Rubmar Garcia",
       timeAgo: "3 weeks ago",
     },
     {
-      image: "https://via.placeholder.com/64x64/f59e0b/ffffff?text=BTC",
+      image: "",
       title: "Bitcoin To Bottom Around $70,000? Arthur Hayes Says Correction 'Very Normal' In A Bull Market",
       author: "Ash Tiwari",
       timeAgo: "3 months ago",
@@ -82,28 +82,28 @@ const CryptoPlatform = () => {
 
   const latestNews = [
     {
-      image: "https://via.placeholder.com/400x300/8b5cf6/ffffff?text=SOL",
+      image: "",
       title: "Solana Forms Bullish Flag On Daily Chart — Breakout Imminent?",
       description: "Solana is displaying signs of strength as it trades with a key chart pattern, which indicates that the altcoin is...",
       author: "Sandra White",
       timeAgo: "2 hours ago"
     },
     {
-      image: "https://via.placeholder.com/400x300/10b981/ffffff?text=XRP",
+      image: "",
       title: "Analyst Reveals Rational Behind XRP Price Reaching $9.5 And $37.5",
       description: "Crypto analyst Egrag Crypto has provided a detailed breakdown of how the XRP price could reach between $9.5 and $37.5....",
       author: "Sandra White",
       timeAgo: "5 hours ago"
     },
     {
-      image: "https://via.placeholder.com/400x300/06b6d4/ffffff?text=XRP",
+      image: "",
       title: "Wave 3 Ignites As XRP Breaks Structure — Analyst Says 'Fireworks Ahead'",
       description: "Hours after Ripple Labs said it would abandon its long-running appeal in its securities case with the US Securities and...",
       author: "Sandra White",
       timeAgo: "7 hours ago"
     },
     {
-      image: "https://via.placeholder.com/400x300/3b82f6/ffffff?text=ADA",
+      image: "",
       title: "Can Cardano Lead In Bitcoin DeFi? Founder Says It Needs A Central Voice First",
       description: "Cardano is making moves to become a hub for Bitcoin DeFi. According to Cardano founder Charles Hoskinson, the network has...",
       author: "Sandra White",
@@ -116,19 +116,19 @@ const CryptoPlatform = () => {
       title: "Bitcoin Price Analysis: Key Levels to Watch",
       excerpt: "Technical indicators suggest Bitcoin may be preparing for its next major move...",
       date: "May 15, 2023",
-      image: "https://via.placeholder.com/400x200/f59e0b/ffffff?text=BTC+Analysis"
+      image: ""
     },
     {
       title: "Institutional Adoption of Bitcoin Reaches New Highs",
       excerpt: "Major financial institutions are increasing their Bitcoin holdings...",
       date: "May 12, 2023",
-      image: "https://via.placeholder.com/400x200/1f2937/ffffff?text=Institutional"
+      image: ""
     },
     {
       title: "Bitcoin Halving 2024: What to Expect",
       excerpt: "The next Bitcoin halving event is approaching. Here's how it might affect the market...",
       date: "May 10, 2023",
-      image: "https://via.placeholder.com/400x200/dc2626/ffffff?text=Halving"
+      image: ""
     }
   ];
 
@@ -162,18 +162,19 @@ const CryptoPlatform = () => {
         </div>
       </header>
 
-      {/* Crypto Ticker */}
-      <div className="bg-black/30 backdrop-blur-sm border-b border-white/10 py-2 overflow-hidden">
-        <div className="flex animate-[ticker_20s_linear_infinite]">
-          {cryptoLogos.map((crypto, index) => (
-            <div key={`ticker-${crypto}-${index}`} className="flex items-center space-x-2 mx-8 whitespace-nowrap">
-              <Coins className="w-4 h-4 text-yellow-400" />
-              <span className="text-sm font-semibold">{crypto}</span>
-              <span className="text-green-400 text-sm">+{(Math.random() * 10).toFixed(2)}%</span>
-            </div>
-          ))}
-        </div>
+     {/* Crypto Ticker */}
+    <div className="bg-black/30 backdrop-blur-sm border-b border-white/10 py-2 overflow-hidden">
+      <div className="flex animate-ticker">
+        {cryptoLogos.map((crypto, index) => (
+          <div key={`ticker-${crypto}-${index}`} className="flex items-center space-x-2 mx-8 whitespace-nowrap">
+            <Coins className="w-4 h-4 text-yellow-400" />
+            <span className="text-sm font-semibold">{crypto}</span>
+            <span className="text-green-400 text-sm">+{(Math.random() * 10).toFixed(2)}%</span>
+          </div>
+        ))}
       </div>
+    </div>
+
 
       {/* Main Content */}
       <main className="container mx-auto px-6 py-12">
@@ -263,20 +264,32 @@ const CryptoPlatform = () => {
                               <div className="text-sm opacity-80">FUN TOKENS</div>
                             </div>
                           )}
-                          {card.category === 'Cloud Mining' && (
-                            <div className="space-y-4">
-                              <div className="grid grid-cols-2 gap-2">
-                                {['BTC', 'DOGE', 'XRP', 'ETH'].map((crypto) => (
-                                  <div key={`cloud-mining-${crypto}`} className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center">
-                                    <span className="font-bold text-sm">{crypto}</span>
-                                  </div>
-                                ))}
-                              </div>
-                              <div className="flex items-center justify-center">
-                                <Globe className="w-8 h-8" />
-                              </div>
+
+
+                         {card.category === 'Cloud Mining' && (
+                          <div className="space-y-4">
+                            {/* Crypto Icons Grid */}
+                            <div className="grid grid-cols-2 gap-4">
+                              {['BTC', 'DOGE', 'XRP', 'ETH'].map((crypto) => (
+                                <div
+                                  key={`cloud-mining-${crypto}`}
+                                  className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center text-white"
+                                >
+                                  <span className="font-bold text-sm">{crypto}</span>
+                                </div>
+                              ))}
                             </div>
-                          )}
+
+                            {/* Globe Icon */}
+                            <div className="flex items-center justify-center">
+                              <Globe className="w-8 h-8 text-white opacity-80" />
+                            </div>
+                          </div>
+                        )}
+
+
+
+
                         </div>
                       </div>
                     </div>
